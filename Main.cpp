@@ -14,7 +14,6 @@
 #include "Includes/Logger.h"
 #include "Includes/obfuscate.h"
 #include "Includes/Utils.h"
-#include "Includes/Color.h"
 #include "Includes/MonoString.h"
 #include "Includes/Strings.h"
 #include "Unity/Vector2.h"
