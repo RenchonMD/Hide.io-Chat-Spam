@@ -33,15 +33,15 @@ monoString *(*CreateString)(void *_this, const char *str);
 void (*get_StringInstance);
 
  
-void (*SendChatMessage)(void *instance, monoString *message);;
+void (*SendChatMessage)(void *instance, monoString *message);
 void(* old_Chatv1)(void * instance);
 void Chatv1(void*instance) {
     if(instance != NULL ) {
        if(ChatSpam) {
-		   ChatSpam = true;
-           StartChatSpam();   
-       }
-    }
+           ChatSpam = true;
+           SendChatMessage(instance,String_CreateString(get_StringInstance,"안녕하세요"));
+       }       
+    }  
     old_Chatv1(instance);
 }
 
