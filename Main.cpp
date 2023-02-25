@@ -70,7 +70,7 @@ void *hack_thread(void *) {
                    
     CreateString = (monoString*(*)(void *,const char *))getAbsoluteAddress(targetLibName, 0x123456);
     
-    get_StringInstance  = (void (*))getAbsoluteAddress(targetLibName, 0x123456);
+    get_StringInstance = (void (*))getAbsoluteAddress(targetLibName, 0x123456);
          
 #else     
 
