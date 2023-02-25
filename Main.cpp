@@ -39,7 +39,7 @@ void Chatv1(void*instance) {
     if(instance != NULL ) {
        if(ChatSpam) {
            ChatSpam = true;
-           SendChatMessage(instance,String_CreateString(get_StringInstance,"안녕하세요"));
+           SendChatMessage(instance,String_CreateString(get_StringInstance,"Test"));
        }       
     }  
     old_Chatv1(instance);
