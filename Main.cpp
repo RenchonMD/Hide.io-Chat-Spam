@@ -9,8 +9,6 @@
 #include <fstream>
 #include <iostream>
 #include <dlfcn.h> 
-#include "Unity/Vector2.h"
-#include "Unity/Vector3.h"
 #include "Includes/Logger.h"
 #include "Includes/obfuscate.h"
 #include "Includes/Utils.h"
