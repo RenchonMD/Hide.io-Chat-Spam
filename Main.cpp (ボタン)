@@ -9,8 +9,6 @@
 #include <fstream>
 #include <iostream>
 #include <dlfcn.h> 
-#include "Unity/Vector2.h"
-#include "Unity/Vector3.h"
 #include "Includes/Logger.h"
 #include "Includes/obfuscate.h"
 #include "Includes/Utils.h"
@@ -69,7 +67,7 @@ void *hack_thread(void *) {
     
     SendChatMessage = (void (*)(void *,monoString *))getAbsoluteAddress(targetLibName, 0x123456);
                    
-    CreateString = (monoString*(*)(void *,const char *))getAbsoluteAddress(targetLibName, 0x123456);
+    String_CreateString = (monoString*(*)(void *,const char *))getAbsoluteAddress(targetLibName, 0x123456);
     
     get_StringInstance  = (void (*))getAbsoluteAddress(targetLibName, 0x123456);
          
@@ -100,8 +98,7 @@ jobjectArray GetFeatureList(JNIEnv *env, jobject context) {
     jobjectArray ret;
 
     const char *features[] = {
-            OBFUSCATE("0_Button_Chat Spam"),
-            
+            OBFUSCATE("0_Button_Chat Spam"),         
     };
 
     //Now you dont have to manually update the number everytime;
