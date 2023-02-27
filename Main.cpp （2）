@@ -42,15 +42,15 @@ void Chatv1(void*instance) {
     if(instance != NULL ) {
        if(ChatSpam) {
            ChatSpam = false;
-           SendChatMessage(instance,String_CreateString(get_StringInstance,"テスト 1"));
+           SendChatMessage(instance,String_CreateString(get_StringInstance,"おはよう"));
        } 
        if(ChatSpam2) {
            ChatSpam = false;
-           SendChatMessage(instance,String_CreateString(get_StringInstance,"テスト 2"));  
+           SendChatMessage(instance,String_CreateString(get_StringInstance,"こんにちは"));  
        }
 　　　　if(ChatSpam3) {
            ChatSpam = false;
-           SendChatMessage(instance,String_CreateString(get_StringInstance,"テスト 3"));
+           SendChatMessage(instance,String_CreateString(get_StringInstance,"さようなら"));
 　　　　 }
     }  
     old_Chatv1(instance);
