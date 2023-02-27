@@ -9,8 +9,6 @@
 #include <fstream>
 #include <iostream>
 #include <dlfcn.h> 
-#include "Unity/Vector2.h"
-#include "Unity/Vector3.h"
 #include "Includes/Logger.h"
 #include "Includes/obfuscate.h"
 #include "Includes/Utils.h"
@@ -24,6 +22,10 @@
 #include "KittyMemory/MemoryPatch.h"
 #include "Menu/Setup.h"
 
+bool ChatSpam = false;
+bool ChatSpam2  = false; 
+bool ChatSpam3 = false;
+
 //Target lib here
 #define targetLibName OBFUSCATE("libil2cpp.so")
 
@@ -35,14 +37,21 @@ void (*get_StringInstance);
 
  
 void (*SendChatMessage)(void *instance, monoString *message);
-bool ChatSpam = false;
 void(* old_Chatv1)(void * instance);
 void Chatv1(void*instance) {
     if(instance != NULL ) {
        if(ChatSpam) {
            ChatSpam = false;
-           SendChatMessage(instance,String_CreateString(get_StringInstance,"HIKAKIN TV"));
-       }       
+           SendChatMessage(instance,String_CreateString(get_StringInstance,"テスト 1"));
+       } 
+       if(ChatSpam2) {
+           ChatSpam = false;
+           SendChatMessage(instance,String_CreateString(get_StringInstance,"テスト 2"));  
+       }
+　　　　if(ChatSpam3) {
+           ChatSpam = false;
+           SendChatMessage(instance,String_CreateString(get_StringInstance,"テスト 3"));
+　　　　 }
     }  
     old_Chatv1(instance);
 }
@@ -100,8 +109,9 @@ jobjectArray GetFeatureList(JNIEnv *env, jobject context) {
     jobjectArray ret;
 
     const char *features[] = {
-            OBFUSCATE("0_Button_Chat Spam"),
-            
+            OBFUSCATE("0_Button_Chat Spam おはよう"),
+            OBFUSCATE("1_Button_Chat Spam こんにちは"),
+            OBFUSCATE("2_Button_Chat Spam さようなら"),           
     };
 
     //Now you dont have to manually update the number everytime;
@@ -129,8 +139,14 @@ void Changes(JNIEnv *env, jclass clazz, jobject obj,
     switch (featNum) {
         case 0:
             ChatSpam = true;
-            break; 		
-    }
+            break;
+        case 0:
+            ChatSpam2 = true;
+            break;
+        case 0:
+            ChatSpam3 = true;
+            break;   
+   }
 }
 
 __attribute__((constructor))
