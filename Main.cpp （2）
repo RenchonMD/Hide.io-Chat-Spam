@@ -78,7 +78,7 @@ void *hack_thread(void *) {
     
     SendChatMessage = (void (*)(void *,monoString *))getAbsoluteAddress(targetLibName, 0x123456);
                    
-    CreateString = (monoString*(*)(void *,const char *))getAbsoluteAddress(targetLibName, 0x123456);
+    String_CreateString = (monoString*(*)(void *,const char *))getAbsoluteAddress(targetLibName, 0x123456);
     
     get_StringInstance  = (void (*))getAbsoluteAddress(targetLibName, 0x123456);
          
