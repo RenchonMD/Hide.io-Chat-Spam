@@ -1,3 +1,3 @@
-# Hide.io-Chat-Spam
+# 隠れん坊オンライン チャットスパム
 
-I used this template https://github.com/LGLTeam/Android-Mod-Menu
+このModmenuを使用 https://github.com/LGLTeam/Android-Mod-Menu
