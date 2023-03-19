@@ -26,7 +26,7 @@
 
 #include "Includes/Macros.h"
 
-bool ChatSpam = false;
+bool ChatSpam;
 
 // Hooking examples. Assuming you know how to write hook
 monoString *(*CreateString)(void *_this, const char *str);
@@ -38,8 +38,7 @@ void(* old_Chatv1)(void * instance);
 void Chatv1(void*instance) {
     if(instance != NULL ) {
        if(ChatSpam) {
-           ChatSpam = true;
-           SendChatMessage(instance,String_CreateString(get_StringInstance,"Test"));
+           SendChatMessage(instance,String_CreateString(get_StringInstance,"こんにちは"));
        }       
     }  
     old_Chatv1(instance);
@@ -99,7 +98,7 @@ jobjectArray GetFeatureList(JNIEnv *env, jobject context) {
     jobjectArray ret;
 
     const char *features[] = {
-            OBFUSCATE("0_ButtonOnOff_Chat Spam"),
+            OBFUSCATE("0_Toggle_Chat Spam"),
             
     };
 
