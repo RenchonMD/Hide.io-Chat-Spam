@@ -27,13 +27,14 @@
 
 #include "Includes/Macros.h"
 
+bool ChatSpam = false;
+
 // Hooking examples. Assuming you know how to write hook
 monoString *(*CreateString)(void *_this, const char *str);
 void (*get_StringInstance);
 
  
 void (*SendChatMessage)(void *instance, monoString *message);
-bool ChatSpam = false;
 void(* old_Chatv1)(void * instance);
 void Chatv1(void*instance) {
     if(instance != NULL ) {
