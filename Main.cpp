@@ -87,13 +87,6 @@ void *hack_thread(void *) {
     return NULL;
 }
 
-// Do not change or translate the first text unless you know what you are doing
-// Assigning feature numbers is optional. Without it, it will automatically count for you, starting from 0
-// Assigned feature numbers can be like any numbers 1,3,200,10... instead in order 0,1,2,3,4,5...
-// ButtonLink, Category, RichTextView and RichWebView is not counted. They can't have feature number assigned
-// Toggle, ButtonOnOff and Checkbox can be switched on by default, if you add True_. Example: CheckBox_True_The Check Box
-// To learn HTML, go to this page: https://www.w3schools.com/
-
 jobjectArray GetFeatureList(JNIEnv *env, jobject context) {
     jobjectArray ret;
 
