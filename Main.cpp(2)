@@ -45,6 +45,7 @@ void Chatv1(void*instance) {
     }  
     old_Chatv1(instance);
 }
+
 // we will run our hacks in a new thread so our while loop doesn't block process main thread
 void *hack_thread(void *) {
     LOGI(OBFUSCATE("pthread created"));
